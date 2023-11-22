@@ -19,7 +19,7 @@
 
 <div class="container text-center">
   <h1>수정</h1>
-  <form th:action th:object="${postDto}" method="post">
+  <form th:action th:object="${meetingDto}" method="post">
 
     <div>
       <label for="title">title</label>
@@ -29,10 +29,10 @@
     </div>
 
     <div>
-      <label for="cost">가격</label>
-      <input id="cost" th:field="*{cost}" class="form-control custom-input" placeholder="가격을 숫자로 입력해주세요 (ex 30000, 50000) 무료인경우 0을 적어주세요"
+      <label for="cost">최대 인원</label>
+      <input id="cost" th:field="*{maxCapacity}" class="form-control custom-input" placeholder="가격을 숫자로 입력해주세요 (ex 30000, 50000) 무료인경우 0을 적어주세요"
              th:errorclass="field-error">
-      <div class="field-error" th:errors="*{cost}" />
+      <div class="field-error" th:errors="*{maxCapacity}" />
     </div>
 
     <div>

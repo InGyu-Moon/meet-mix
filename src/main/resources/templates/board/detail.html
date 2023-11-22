@@ -11,30 +11,30 @@
 <div th:replace="~{fragment/fragment :: header}"></div>
 
 <div class="container text-center">
-  <form th:action th:object="${postDto}" method="post">
+  <form th:action th:object="${meetingDto}" method="post">
 
     <div>
       <label for="title">title</label>
-      <input id="title" class="form-control custom-input" th:value="${postDto.title}" readonly>
+      <input id="title" class="form-control custom-input" th:value="${meetingDto.title}" readonly>
     </div>
 
     <div>
-      <label for="cost">가격</label>
-      <input id="cost" class="form-control custom-input" th:value="${postDto.cost}" readonly>
+      <label for="cost">최대 인원</label>
+      <input id="cost" class="form-control custom-input" th:value="${meetingDto.maxCapacity}" readonly>
     </div>
 
     <div>
       <label for="content">설명</label>
       <textarea id="content" th:field="*{content}" class="form-control" placeholder="설명을 작성해주세요"
-                style="height: 300px" th:value="${postDto.content}" readonly></textarea>
+                style="height: 300px" th:value="${meetingDto.content}" readonly></textarea>
     </div>
 
     <div th:if="${isCurrentUserAuthor == true}" class="row">
       <div class="col">
-        <a th:href="@{'/board/edit/' + ${postDto.postId}}" class="btn btn-outline-primary me-2">수정</a>
+        <a th:href="@{'/board/edit/' + ${meetingDto.meetingId}}" class="btn btn-outline-primary me-2">수정</a>
       </div>
       <div class="col">
-        <a th:href="@{'/board/delete/' + ${postDto.postId}}" class="btn btn-outline-primary me-2">삭제</a>
+        <a th:href="@{'/board/delete/' + ${meetingDto.meetingId}}" class="btn btn-outline-primary me-2">삭제</a>
       </div>
     </div>
   </form>
