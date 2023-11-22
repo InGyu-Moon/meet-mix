@@ -14,8 +14,9 @@ public class MeetingDto {
     @NotBlank(message = "내용은 필수 입력값입니다.")
     private String content;
     private LocalDateTime createAt;
-    //private LocalDateTime deadline;
+    private LocalDateTime deadline;
     @Min(value = 1, message = "최대인원은 1 이상이어야 합니다.")
     private int maxCapacity;
     private String nickname;
+    private Long memberId;
 }

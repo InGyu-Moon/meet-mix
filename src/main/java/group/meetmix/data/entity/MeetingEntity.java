@@ -43,7 +43,7 @@ public class MeetingEntity {
         meetingEntity.setTitle(meetingDto.getTitle());
         meetingEntity.setContent(meetingDto.getContent());
         meetingEntity.setCreateAt(LocalDateTime.now());
-        //meetingEntity.setDeadline(meetingDto.getDeadline());
+        meetingEntity.setDeadline(meetingDto.getDeadline());
         meetingEntity.setMaxCapacity(meetingDto.getMaxCapacity());
         return  meetingEntity;
     }
