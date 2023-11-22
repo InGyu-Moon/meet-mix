@@ -23,7 +23,7 @@ public class MeetingServiceImpl implements MeetingService{
     @Transactional
     public void saveMeeting(MeetingDto meetingDto) {
 
-        Optional<MemberEntity> memberOptional = memberRepository.findById(meetingDto.getMeetingId());
+        Optional<MemberEntity> memberOptional = memberRepository.findById(meetingDto.getMemberId());
         MeetingEntity meeting = MeetingEntity.createMeeting(memberOptional.get(), meetingDto);
         meetingRepository.save(meeting);
     }
@@ -36,11 +36,49 @@ public class MeetingServiceImpl implements MeetingService{
 
         for (MeetingEntity meetingEntity : meetingEntityList) {
             MeetingDto meetingDto = new MeetingDto();
-            // PostEntity를 PostDto로 복사합니다.
-            BeanUtils.copyProperties(meetingEntity, meetingDto);
-            meetingDto.setNickname(meetingEntity.getMember().getNickname());
+
+            // meetingEntity 를 meetingDto 에 복사합니다.
+            convertMeetingEntityToMeetingDto(meetingEntity, meetingDto);
+
             meetingDtoList.add(meetingDto);
         }
         return meetingDtoList;
     }
+    @Override
+    public MeetingDto findMeetingById(Long meetingId) {
+        MeetingEntity meetingEntity = meetingRepository.findById(meetingId);
+        MeetingDto meetingDto = new MeetingDto();
+
+        convertMeetingEntityToMeetingDto(meetingEntity, meetingDto);
+
+        return meetingDto;
+    }
+
+    @Override
+    public void updateMeeting(MeetingDto meetingDto) {
+        MeetingEntity meetingEntity = meetingRepository.findById(meetingDto.getMeetingId());
+        meetingEntity.setTitle(meetingDto.getTitle());
+        meetingEntity.setContent(meetingDto.getContent());
+        meetingEntity.setMaxCapacity(meetingDto.getMaxCapacity());
+        meetingRepository.save(meetingEntity);
+    }
+
+    @Override
+    public void deleteMeeting(Long meetingId) {
+        MeetingEntity meetingEntity = meetingRepository.findById(meetingId);
+        meetingRepository.delete(meetingEntity);
+    }
+
+    private static void convertMeetingEntityToMeetingDto(MeetingEntity meetingEntity, MeetingDto meetingDto) {
+        meetingDto.setMeetingId(meetingEntity.getMeetingId());
+        meetingDto.setTitle(meetingEntity.getTitle());
+        meetingDto.setContent(meetingEntity.getContent());
+        meetingDto.setCreateAt(meetingEntity.getCreateAt());
+        meetingDto.setDeadline(meetingEntity.getDeadline());
+        meetingDto.setMaxCapacity(meetingEntity.getMaxCapacity());
+        meetingDto.setNickname(meetingEntity.getMember().getNickname());
+        meetingDto.setMemberId(meetingEntity.getMember().getMemberId());
+    }
+
+
 }
