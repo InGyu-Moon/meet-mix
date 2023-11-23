@@ -1,5 +1,11 @@
 package group.meetmix.controller;
 
+import group.meetmix.data.dto.ApplyDto;
+import group.meetmix.data.dto.MeetingDto;
+import group.meetmix.service.apply.ApplyService;
+import group.meetmix.service.meeting.MeetingService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import group.meetmix.data.dto.MemberDto;
@@ -11,12 +17,16 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/members")
 public class MemberController {
     private final MemberService memberService;
+    private final ApplyService applyService;
+    private final MeetingService meetingService;
 
     // 회원가입 form -> newMemberForm ->newMemberFormV3
     @GetMapping("/new")
@@ -52,12 +62,20 @@ public class MemberController {
     }
 
     @GetMapping("/{memberId}")
-    public String getMemberInfo(@PathVariable Long memberId, Model model){
+    public String getMemberInfo(@PathVariable Long memberId, HttpServletRequest request, Model model){
         MemberDto memberByMemberId = memberService.getMemberByMemberId(memberId);
         if(memberByMemberId == null){
             return "redirect:/";
         }
+
+        List<ApplyDto> applyDtoList = applyService.findAllApplies(memberId);
+        List<MeetingDto> meetingDtoList = meetingService.findALlById(memberId);
+
+
+        model.addAttribute(applyDtoList);
+        model.addAttribute(meetingDtoList);
         model.addAttribute("member",memberByMemberId);
+
         return "members/mypage";
     }
 

@@ -69,6 +69,20 @@ public class MeetingServiceImpl implements MeetingService{
         meetingRepository.delete(meetingEntity);
     }
 
+    @Override
+    public List<MeetingDto> findALlById(Long id) {
+        List<MeetingEntity> meetingEntityList = meetingRepository.findAllById(id);
+        List<MeetingDto> meetingDtoList = new ArrayList<>();
+
+        for(MeetingEntity meetingEntity : meetingEntityList){
+            MeetingDto meetingDto = new MeetingDto();
+            convertMeetingEntityToMeetingDto(meetingEntity,meetingDto);
+            meetingDtoList.add(meetingDto);
+        }
+
+        return meetingDtoList;
+    }
+
     private static void convertMeetingEntityToMeetingDto(MeetingEntity meetingEntity, MeetingDto meetingDto) {
         meetingDto.setMeetingId(meetingEntity.getMeetingId());
         meetingDto.setTitle(meetingEntity.getTitle());

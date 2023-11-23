@@ -6,4 +6,6 @@ import lombok.Data;
 public class ApplyDto {
     private Long meetingId;
     private Long memberId;
+
+    private String Title;
 }

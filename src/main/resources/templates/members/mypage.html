@@ -19,7 +19,32 @@
     <!--
     <a th:href="@{'/reserve-check/' + ${session.memberId}}" class="btn btn-lg btn-outline-primary mx-auto" style="width: 150px;">예약목록</a>
     -->
-    <a href="" class="btn btn-lg btn-outline-primary mx-auto" style="width: 150px;">신청목록</a>
+    <h2>작성 목록</h2>
+    <div class="container py-3">
+        <div th:each="meeting : ${meetingDtoList}">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li th:text="'Meeting Name: ' + ${meeting.title}" >meeting name</li>
+                        <a th:href="@{'/board/' + ${meeting.meetingId}}" class="btn btn-lg btn-outline-primary mx-auto" style="width: 150px;">바로가기</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2>신청 목록</h2>
+    <div class="container py-3">
+        <div th:each="apply : ${applyDtoList}">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li th:text="'Meeting Name: ' + ${apply.title}" >meeting name</li>
+                        <a th:href="@{'/board/' + ${apply.meetingId}}" class="btn btn-lg btn-outline-primary mx-auto" style="width: 150px;">바로가기</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 

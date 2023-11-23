@@ -1,5 +1,6 @@
 package group.meetmix.data.repository;
 
+import group.meetmix.data.entity.ApplyEntity;
 import group.meetmix.data.entity.MeetingEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -31,6 +32,11 @@ public class MeetingRepository {
     }
     public void delete(MeetingEntity meeting){
         em.remove(meeting);
+    }
+    public List<MeetingEntity> findAllById(Long id){
+        return em.createQuery("select m from MeetingEntity m where m.member.id = :id", MeetingEntity.class)
+                .setParameter("id", id)
+                .getResultList();
     }
 
 }
