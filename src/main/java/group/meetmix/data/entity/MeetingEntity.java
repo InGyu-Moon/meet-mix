@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "MEETING")
@@ -29,6 +31,8 @@ public class MeetingEntity {
     private LocalDateTime deadline;
     @Column(name="MAX_CAPACITY")
     private int maxCapacity;
+    @OneToMany(mappedBy = "meeting")
+    private List<ApplyEntity> applies = new ArrayList<>();
 
     // == 연관 관계 메서드 == //
     public void setMemberEntity(MemberEntity member){

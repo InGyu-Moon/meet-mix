@@ -26,4 +26,6 @@ public class MemberEntity {
 
     @OneToMany(mappedBy = "member")
     private List<MeetingEntity> meetings = new ArrayList<>();
+    @OneToMany(mappedBy = "member")
+    private List<ApplyEntity> applies = new ArrayList<>();
 }
