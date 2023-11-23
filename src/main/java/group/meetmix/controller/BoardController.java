@@ -34,6 +34,10 @@ public class BoardController {
         Object sessionNickname = session.getAttribute("nickname");
         model.addAttribute("sessionNickname",(String)sessionNickname);
 
+        // 추가 (sessionNickname 대신 memberId를 사용하기위해서)
+        Long sessionMemberId = (Long)session.getAttribute("memberId");
+        model.addAttribute("sessionMemberId",sessionMemberId);
+
         return "board/board";
     }
 
