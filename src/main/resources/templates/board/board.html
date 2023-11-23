@@ -55,8 +55,10 @@
               </div>
               <div class="col">
                 <a href="" class="w-100 btn btn-lg btn-outline-primary"
-                   onclick="checkAndShowAlert(this.getAttribute('data-meeting-nickname'),this.getAttribute('data-session-nickname'))"
-                   th:attr="data-meeting-nickname=${meeting.nickname}, data-session-nickname=${sessionNickname}">신청</a> </div>
+                   onclick="checkAndShowAlert(this.getAttribute('data-memberId'),this.getAttribute('data-sessionMemberId'),
+                   this.getAttribute('data-meetingId'))"
+                   th:attr="data-memberId=${meeting.memberId}, data-sessionMemberId=${sessionMemberId},
+                        data-meetingId=${meeting.meetingId}">신청</a> </div>
             </div>
             <!-- <button type="button" class="w-100 btn btn-lg btn-outline-primary">신청하기</button> -->
           </div>
@@ -68,14 +70,22 @@
 
     <script>
 
-    function checkAndShowAlert(postNickname, sessionNickname) {
-    console.log(postNickname);
-    console.log(sessionNickname);
+    function checkAndShowAlert(postMemberId, sessionMemberId, meetingId) {
+    console.log(postMemberId);
+    console.log(sessionMemberId);
 
-    if (postNickname === sessionNickname) {
+    if (postMemberId === sessionMemberId) {
         alert("자신의 글에는 신청할 수 없습니다.");
     } else {
         alert("신청되었습니다!");
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/apply" , true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        var data = JSON.stringify({ meetingId: meetingId });
+        xhr.send(data);
+
     }
 }
 </script>
