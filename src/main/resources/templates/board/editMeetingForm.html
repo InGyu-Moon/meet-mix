@@ -22,7 +22,7 @@
   <form th:action th:object="${meetingDto}" method="post">
 
     <div>
-      <label for="title">title</label>
+      <label for="title">제목</label>
       <input id="title" th:field="*{title}" class="form-control custom-input" placeholder="설명을 작성해주세요"
              th:errorclass="field-error">
       <div class="field-error" th:errors="*{title}" />
