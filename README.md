@@ -14,6 +14,19 @@
 
 ~~네이버 클라우드 : http://223.130.146.145:8080/~~
 
+# 해당 프로젝트에서 맡은 부분
+
+## 회의실 데이터베이스
+공유누리 api, 카카오 open api, 크롤링을 이용해서 데이터베이스에 데이터 저장
+
+
+![image](https://github.com/InGyu-Moon/meeting/assets/98271218/1cf42ecb-2c97-4e0a-a1b0-cbda51327c8f)
+
+## 회의실 정보 찾기
+![image](https://github.com/InGyu-Moon/meeting/assets/98271218/ee8fbfa8-545f-4d27-aed0-fcd3cebb3161)
+
+
+
 ## 회원가입
 ![image](https://github.com/InGyu-Moon/meeting/assets/98271218/6915b727-b463-4afb-9449-6e751e1a5b2a)
 
