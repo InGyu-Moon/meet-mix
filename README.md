@@ -45,6 +45,15 @@
 ## 마이페이지
 ![image](https://github.com/InGyu-Moon/meeting/assets/98271218/8aa79aa4-6f29-413a-8cf7-5f11795c4cc4)
 
+## 관련 포스팅
+
+##### 클라우드 타입 배포하기(spring boot, mysql) - (https://bangbaeking.tistory.com/67)
+
+
+##### 정적페이지 크롤링과 동적페이지 크롤링 - https://bangbaeking.tistory.com/66
+
+
+##### Spring Security 를 이용해서 비밀번호 암호화 하기 - https://bangbaeking.tistory.com/74
 
 
 
