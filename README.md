@@ -1,3 +1,19 @@
+## 사용 기술
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"> <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
+
+
+<img src="https://img.shields.io/badge/spring boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"> <img src="https://img.shields.io/badge/JPA-59666C?style=for-the-badge&logo=hibernate&logoColor=white"> <img src="https://img.shields.io/badge/thymeleaf-005F0F?style=for-the-badge&logo=thymeleaf&logoColor=white">
+
+
+<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/naver cloud-03C75A?style=for-the-badge&logo=naver&logoColor=white">
+
+
+## 배포
+~~클라우드타입 : https://port-0-meeting-ac2nllgequmf.sel3.cloudtype.app/~~
+
+
+~~네이버 클라우드 : http://223.130.146.145:8080/~~
+
 ## 회원가입
 ![image](https://github.com/InGyu-Moon/meeting/assets/98271218/6915b727-b463-4afb-9449-6e751e1a5b2a)
 
@@ -15,12 +31,6 @@
 
 ## 마이페이지
 ![image](https://github.com/InGyu-Moon/meeting/assets/98271218/8aa79aa4-6f29-413a-8cf7-5f11795c4cc4)
-
-## 배포
-~~클라우드타입 : https://port-0-meeting-ac2nllgequmf.sel3.cloudtype.app/~~
-
-
-~~네이버 클라우드 : http://223.130.146.145:8080/~~
 
 
 
