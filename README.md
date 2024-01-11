@@ -50,7 +50,7 @@
 
 
 
-## 회원가입
+## 회원가입 / 로그인
 ![image](https://github.com/InGyu-Moon/meeting/assets/98271218/6915b727-b463-4afb-9449-6e751e1a5b2a)
 
 
