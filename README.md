@@ -2,6 +2,8 @@
 
 해당 프로젝트는 공공, 민간 회의실에 대한 정보를 취합하여, 회의실을 예약하고 모임(스터디, 동아리 등)을 모집할 수 있는 커뮤니티 기능이 포함한 웹사이트 입니다.
 
+
+
 ## 사용 기술
 <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"> <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
 
@@ -17,6 +19,22 @@
 
 
 ~~네이버 클라우드 : http://223.130.146.145:8080/~~
+
+## 해당 프로젝트 관련 포스팅
+
+##### 클라우드 타입 배포하기(spring boot, mysql) - https://bangbaeking.tistory.com/67
+
+
+##### 정적페이지 크롤링과 동적페이지 크롤링 - https://bangbaeking.tistory.com/66
+
+
+##### Spring Security 를 이용해서 비밀번호 암호화 하기 - https://bangbaeking.tistory.com/74
+
+
+##### 네이버 클라우드로 리눅스 서버 열기 - https://bangbaeking.tistory.com/82
+
+
+##### 네이버 클라우드 SpringBoot + MySQL 서버 생성, 배포하기 - https://bangbaeking.tistory.com/85
 
 # 해당 프로젝트에서 맡은 부분
 
@@ -49,16 +67,6 @@
 
 ## 마이페이지
 ![image](https://github.com/InGyu-Moon/meeting/assets/98271218/8aa79aa4-6f29-413a-8cf7-5f11795c4cc4)
-
-## 관련 포스팅
-
-##### 클라우드 타입 배포하기(spring boot, mysql) - (https://bangbaeking.tistory.com/67)
-
-
-##### 정적페이지 크롤링과 동적페이지 크롤링 - https://bangbaeking.tistory.com/66
-
-
-##### Spring Security 를 이용해서 비밀번호 암호화 하기 - https://bangbaeking.tistory.com/74
 
 
 
