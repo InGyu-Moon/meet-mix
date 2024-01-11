@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Mix</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<!-- header -->
+<div th:replace="~{fragment/fragment :: header}"></div>
+<!-- header -->
+
+<div class="text-center">
+    <h2 th:if="${session.nickname != null}" th:text="${helloNickname}"></h2>
+    <!-- <h3>지도에 마크를 찍고 좌표를 입력하세요!!!</h3> -->
+
+    <form id="searchForm">
+        <label for="type">Type:</label>
+        <input type="radio" id="type0" name="type" value="0" required>
+        <label for="type0">전체</label>
+        <input type="radio" id="type1" name="type" value="1" required>
+        <label for="type1">공공 회의실</label>
+        <input type="radio" id="type2" name="type" value="2" required>
+        <label for="type2">민간 회의실</label>
+        <input type="radio" id="type3" name="type" value="3" required>
+        <label for="type3">카페</label>
+        <br><br>
+        <label for="y">위도:</label>
+        <input type="number" id="y" name="y" step="any" value="36.4922" required><br><br>
+
+        <label for="x">경도:</label>
+        <input type="number" id="x" name="x" step="any" value="127.2582" required><br><br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+    <div id="map-container" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <div id="map" style="width:500px;height:400px;"></div>
+        <div id="results"></div>
+    </div>
+
+</div>
+
+<script type="text/javascript"
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d7be0dab6870b8fb60794854999fc401"></script>
+<script>
+    document.getElementById("searchForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const searchParams = new URLSearchParams(formData);
+
+        const jsonData = JSON.stringify({
+            type: formData.get("type"),
+            x: formData.get("x"),
+            y: formData.get("y")
+        });
+
+        console.log(jsonData)
+
+        fetch("/search-places", {
+            method: "POST",
+            body: jsonData,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                const resultsDiv = document.getElementById("results");
+                resultsDiv.innerHTML = ""; // 기존 결과 지우기
+
+                data.forEach(place => {
+                    const placeDiv = document.createElement("div");
+                    placeDiv.innerHTML = `
+                        <p>지역: ${place.location}</p>
+                        <p>이름: ${place.name}</p>
+                        <p>주소: ${place.address}</p>
+                        <p>도로명 주소: ${place.roadAddress}</p>
+                        <p>전화번호: ${place.phone}</p>
+                        <p>URL: ${place.url}</p>
+                        <hr>
+                    `;
+                    resultsDiv.appendChild(placeDiv);
+                });
+            })
+            .catch(error => alert("로그인하세요!"));
+    });
+
+
+    var container = document.getElementById('map');
+    var options = {
+        center: new kakao.maps.LatLng(36.46881343555344, 127.29419662868723),
+        level: 6
+    };
+
+    var map = new kakao.maps.Map(container, options);
+
+</script>
+
+<!-- footer -->
+<div th:replace="~{fragment/fragment :: footer}"></div>
+<!-- footer -->
+
+
+</body>
+</html>
