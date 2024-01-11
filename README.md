@@ -23,7 +23,8 @@
 ![image](https://github.com/InGyu-Moon/meeting/assets/98271218/1cf42ecb-2c97-4e0a-a1b0-cbda51327c8f)
 
 ## 회의실 정보 찾기
-![image](https://github.com/InGyu-Moon/meeting/assets/98271218/ee8fbfa8-545f-4d27-aed0-fcd3cebb3161)
+![image](https://github.com/InGyu-Moon/meeting/assets/98271218/28105cd7-a74f-4d4c-a955-3d3109065988)
+
 
 
 
