@@ -1,3 +1,7 @@
+## 프로젝트 개요
+
+해당 프로젝트는 공공, 민간 회의실에 대한 정보를 취합하여, 회의실을 예약하고 모임(스터디, 동아리 등)을 모집할 수 있는 커뮤니티 기능이 포함한 웹사이트 입니다.
+
 ## 사용 기술
 <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"> <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
 
